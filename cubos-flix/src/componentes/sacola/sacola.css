@@ -1,0 +1,117 @@
+.sacola {
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 112px;
+  min-width: 291px;
+}
+.sacola header {
+  background-color: #a785ed;
+  display: flex;
+  justify-content: center;
+  max-height: 72px;
+}
+
+.sacola-main {
+  padding: 24px 16px;
+}
+
+.sacola-vazia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 312px;
+}
+
+.sacola-vazia-none {
+  display: none;
+}
+
+.sacola-vazia h1 {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+}
+
+.sacola-vazia h2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.sacola-btns-options {
+  max-width: 86px;
+}
+
+.sacola-btns-options button {
+  background: transparent;
+  border: 0;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.input-cupom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+  background-color: #0b1217;
+  padding: 0 16px;
+}
+
+.input-cupom input {
+  align-self: center;
+  all: unset;
+  width: 100%;
+}
+.input-cupom:hover {
+  border: 1px solid #8c8c8c;
+}
+.input-cupom button {
+  background-color: transparent;
+  border: 0;
+}
+.btn-confirmacao {
+  border: 0;
+  background-color: #e25ebf;
+  min-height: 56px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 24px;
+  cursor: pointer;
+  font-family: "Manrope", sans-serif;
+}
+
+.btn-confirmacao:hover {
+  background: linear-gradient(
+      0deg,
+      rgba(225, 123, 123, 0.45),
+      rgba(225, 123, 123, 0.45)
+    ),
+    #ffb6eb;
+  box-shadow: 0px 16px 24px -12px rgba(226, 94, 191, 0.16);
+}
+
+.btn-confirmacao:active {
+  background: linear-gradient(
+      0deg,
+      rgba(225, 123, 123, 0.6),
+      rgba(225, 123, 123, 0.6)
+    ),
+    #ffb6eb;
+  box-shadow: 0px 16px 24px -12px rgba(226, 94, 191, 0.5);
+}
+
+footer {
+  font-size: 12px;
+}
+
+.item-sacola img {
+  width: 43px;
+  height: 67px;
+}

@@ -1,0 +1,68 @@
+.cupom-desc {
+  font-family: "Quantico", sans-serif;
+  background: url("../../assets/images/bg-promotion.svg");
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-areas: "inicio meio fim";
+  padding: 16px 24px;
+  position: relative;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.cupom-desc-none {
+  display: none;
+}
+
+#money-img {
+  position: absolute;
+  left: 654px;
+  bottom: -8px;
+}
+
+.cupom-esquerda h1 {
+  text-transform: uppercase;
+  color: #0f0915;
+  opacity: 0.8;
+  font-weight: normal;
+  font-size: 40px;
+}
+
+.cupom-esquerda p {
+  text-transform: uppercase;
+  color: #0f0915;
+  opacity: 0.8;
+  font-weight: normal;
+  font-size: 16px;
+  margin-left: 16px;
+}
+
+.cupom-direita h2 {
+  text-transform: uppercase;
+  color: #0f0915;
+  opacity: 0.8;
+  font-weight: normal;
+  margin-bottom: 16px;
+  margin-top: 8px;
+}
+
+.cupom-direita p {
+  text-transform: uppercase;
+  color: #0f0915;
+  opacity: 0.8;
+  margin-left: 16px;
+}
+
+.codigo-cupom {
+  display: flex;
+  align-items: center;
+}
+
+.codigo-cupom img {
+  margin-left: -8px;
+}
+
+.tempo-cupom {
+  display: flex;
+  align-items: center;
+}

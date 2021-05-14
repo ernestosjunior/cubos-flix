@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 
 import Movies from "./data.js";
 
-import Filmes from "./componentes/Filmes.js";
-import Header from "./componentes/Header.js";
-import Sacola from "./componentes/Sacola.js";
-import TopFilmes from "./componentes/TopFilmes";
-import Cupom from "./componentes/Cupom.js";
+import Filmes from "./componentes/filmes/Filmes.js";
+import Header from "./componentes/header/Header.js";
+import Sacola from "./componentes/sacola/Sacola.js";
+import TopFilmes from "./componentes/topFilmes/TopFilmes";
+import Cupom from "./componentes/cupom/Cupom.js";
 
 const filtros = [
   {
@@ -38,6 +38,8 @@ function App() {
   const [cupom, setCupom] = useState("");
   const [sacola, setSacola] = useState([]);
   const [filmesFiltrados, setFilmesFiltrados] = useState([]);
+  const [campoBusca, setCampoBuscar] = useState("");
+  console.log(campoBusca);
 
   function handleAdicionarSacola(title) {
     const produto = Movies.find((f) => f.title === title);
@@ -61,9 +63,18 @@ function App() {
     }
   }, [filtro]);
 
+  useEffect(() => {
+    const filmeBuscado = Movies.filter((f) => f.title.includes(campoBusca));
+    if (filmeBuscado) {
+      setFilmesFiltrados(filmeBuscado);
+    } else {
+      setFilmesFiltrados(Movies);
+    }
+  }, [campoBusca]);
+
   return (
     <div className="App">
-      <Header />
+      <Header campoBusca={(texto) => setCampoBuscar(texto)} />
       <main>
         <section>
           <Cupom preencherCupom={(codigo) => setCupom(codigo)} />

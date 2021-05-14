@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import cupomIconCircle from "../assets/images/coupon-circle-icon.svg";
-import timeIcon from "../assets/images/time-icon.svg";
-import moneyImg from "../assets/images/money.png";
+import cupomIconCircle from "../../assets/images/coupon-circle-icon.svg";
+import timeIcon from "../../assets/images/time-icon.svg";
+import moneyImg from "../../assets/images/money.png";
 
+import "./cupom.css";
 function Cupom(props) {
   const [tempo, setTempo] = useState(300);
   const intervalId = useRef(null);

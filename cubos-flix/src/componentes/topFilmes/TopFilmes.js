@@ -1,7 +1,9 @@
 import React from "react";
 
-import starIcon from "../assets/images/star.svg";
-import goldenStar from "../assets/images/golden-star.svg";
+import starIcon from "../../assets/images/star.svg";
+import goldenStar from "../../assets/images/golden-star.svg";
+
+import "./topFilmes.css";
 
 function TopFilmes(props) {
   return (

@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
-import bagIcon from "../assets/images/bag-icon.svg";
-import cupomIcon from "../assets/images/coupon-icon.svg";
-import personIlustration from "../assets/images/person-illustration.svg";
+import bagIcon from "../../assets/images/bag-icon.svg";
+import cupomIcon from "../../assets/images/coupon-icon.svg";
+import personIlustration from "../../assets/images/person-illustration.svg";
+import trashIcon from "../../assets/images/trash-icon.svg";
+import menosIcon from "../../assets/images/minus-icon.svg";
+import addIcon from "../../assets/images/plus-icon.svg";
+
+import "./sacola.css";
 
 function Sacola(props) {
   const [inputCupom, setInputCupom] = useState("");
@@ -32,7 +37,15 @@ function Sacola(props) {
               <img src={p.backgroundImg} alt="" />
               <p>{p.title}</p>
               <p>R$ {p.price}</p>
-              <p>{p.quantidade}</p>
+              <div className="sacola-btns-options">
+                <button>
+                  <img src={addIcon} alt="" />
+                </button>
+                <p>{p.quantidade}</p>
+                <button>
+                  <img src={p.quantidade > 1 ? menosIcon : trashIcon} alt="" />
+                </button>
+              </div>
             </div>
           ))}
         </div>
@@ -53,7 +66,14 @@ function Sacola(props) {
               hidden={props.sacola.length ? false : true}
               className="btn-confirmacao"
             >
-              Confirme seus dados R$
+              Confirme seus dados R${" "}
+              {props.sacola.reduce(
+                (item1, item2) =>
+                  item1.quantidade * item1.price +
+                  item2.quantidade +
+                  item2.price,
+                0
+              )}
             </button>
           </div>
         </footer>
