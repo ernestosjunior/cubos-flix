@@ -1,8 +1,10 @@
 .sacola {
   background-color: rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 112px;
+  position: sticky;
+  top: 24px;
   min-width: 291px;
+  max-height: 537px;
+  overflow-y: auto;
 }
 .sacola header {
   background-color: #a785ed;
@@ -111,7 +113,33 @@ footer {
   font-size: 12px;
 }
 
+.item-sacola {
+  display: grid;
+  grid-template-columns: max-content 2fr 1fr;
+  margin-bottom: 11px;
+}
 .item-sacola img {
+  display: flex;
+  align-items: center;
   width: 43px;
   height: 67px;
+  margin-right: 13px;
+}
+
+.item-sacola-preco {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  width: 80%;
+}
+.sacola-btns-options {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.sacola-btns-options img {
+  width: 24px;
+  height: 24px;
 }

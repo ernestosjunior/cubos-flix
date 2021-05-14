@@ -12,6 +12,28 @@ import "./sacola.css";
 
 function Sacola(props) {
   const [inputCupom, setInputCupom] = useState("");
+  const [totalSacola, setTotalSacola] = useState(0);
+
+  useEffect(() => {
+    const totalSacola = props.sacola.reduce(
+      (acc, item) => acc + item.quantidade * item.price,
+      0
+    );
+    setTotalSacola(totalSacola);
+  }, [props.sacola]);
+
+  function aplicarCupom(e) {
+    if (e.key === "Enter") {
+      if (inputCupom === "HTMLNAOELINGUAGEM") {
+        let valorSacola = props.sacola.reduce(
+          (acc, item) => acc + item.quantidade * item.price,
+          0
+        );
+        let valorDesconto = valorSacola * 0.9;
+        setTotalSacola(valorDesconto);
+      }
+    }
+  }
 
   useEffect(() => {
     setInputCupom(props.cupom);
@@ -35,14 +57,16 @@ function Sacola(props) {
           {props.sacola.map((p) => (
             <div className="item-sacola">
               <img src={p.backgroundImg} alt="" />
-              <p>{p.title}</p>
-              <p>R$ {p.price}</p>
+              <div className="item-sacola-preco">
+                <p>{p.title}</p>
+                <p>R$ {p.price}</p>
+              </div>
               <div className="sacola-btns-options">
-                <button>
+                <button onClick={() => props.adicionar(p.title)}>
                   <img src={addIcon} alt="" />
                 </button>
                 <p>{p.quantidade}</p>
-                <button>
+                <button onClick={() => props.remover(p.title)}>
                   <img src={p.quantidade > 1 ? menosIcon : trashIcon} alt="" />
                 </button>
               </div>
@@ -57,6 +81,7 @@ function Sacola(props) {
                 placeholder="Cupom de desconto "
                 value={inputCupom}
                 onChange={(e) => setInputCupom(e.target.value)}
+                onKeyPress={(e) => aplicarCupom(e)}
               />
               <button>
                 <img src={cupomIcon} alt="" />
@@ -66,14 +91,7 @@ function Sacola(props) {
               hidden={props.sacola.length ? false : true}
               className="btn-confirmacao"
             >
-              Confirme seus dados R${" "}
-              {props.sacola.reduce(
-                (item1, item2) =>
-                  item1.quantidade * item1.price +
-                  item2.quantidade +
-                  item2.price,
-                0
-              )}
+              Confirme seus dados R$ {totalSacola}
             </button>
           </div>
         </footer>

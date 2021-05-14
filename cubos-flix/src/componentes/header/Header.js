@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import logo from "../../assets/images/logo.svg";
 import searchIcon from "../../assets/images/search-icon.svg";
@@ -9,27 +9,36 @@ import profileImg from "../../assets/images/emoji.jpg";
 import "./header.css";
 
 function Header(props) {
-  function textoBusca(e) {
-    if (e.key === "Enter") {
-      props.campoBusca(e.target.value);
-      e.target.value = "";
-      return;
-    }
+  const [inputBusca, setInputBusca] = useState("");
+
+  function textoBusca(texto) {
+    props.campoBusca(texto);
+    setInputBusca("");
+    return;
   }
 
   return (
     <div className="App-header">
       <img src={logo} alt="logo" />
-      <div className="input-header">
+      <form
+        className="input-header"
+        onSubmit={(e) => {
+          e.preventDefault();
+          textoBusca(inputBusca);
+        }}
+      >
         <input
           type="text"
           placeholder="Pesquise filmes..."
-          onKeyPress={(e) => textoBusca(e)}
+          value={inputBusca}
+          onChange={(e) => setInputBusca(e.target.value)}
+          // onKeyPress={(e) => textoBusca(e)}
         />
         <button>
           <img src={searchIcon} alt="search" />
         </button>
-      </div>
+      </form>
+
       <button>
         <img src={favoritosIcon} alt="favoritos" />
         Favoritos

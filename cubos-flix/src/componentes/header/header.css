@@ -32,11 +32,13 @@
 .input-header {
   background-color: #171b1e;
   width: 35%;
-  height: 46px;
-  padding: 16px 24px;
+  height: 56px;
+  display: flex;
+  border: 1px solid transparent;
 }
+
 .input-header:hover {
-  border: 1px solid #8c8c8c;
+  border-color: #8c8c8c;
 }
 .input-header img {
   cursor: pointer;
@@ -45,8 +47,9 @@
 .input-header input {
   all: unset;
   width: 100%;
+
   background-color: #171b1e;
-  border: 0;
+  padding: 16px 24px;
 }
 
 .profile-container img {

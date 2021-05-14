@@ -56,4 +56,6 @@ main {
 
 aside {
   padding: 0 24px;
+
+  position: relative;
 }

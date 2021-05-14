@@ -39,7 +39,6 @@ function App() {
   const [sacola, setSacola] = useState([]);
   const [filmesFiltrados, setFilmesFiltrados] = useState([]);
   const [campoBusca, setCampoBuscar] = useState("");
-  console.log(campoBusca);
 
   function handleAdicionarSacola(title) {
     const produto = Movies.find((f) => f.title === title);
@@ -49,6 +48,23 @@ function App() {
       setSacola([...sacola, produto]);
     } else {
       sacola[indice].quantidade += 1;
+      setSacola([...sacola]);
+    }
+  }
+
+  function handleRetirarSacola(title) {
+    const produto = Movies.find((f) => f.title === title);
+    const indice = sacola.findIndex((produto) => produto.title === title);
+    const espelhoSacola = [...sacola];
+
+    if (indice !== -1) {
+      if (produto.quantidade === 1) {
+        espelhoSacola.splice(indice, 1);
+      } else {
+        espelhoSacola[indice].quantidade -= 1;
+      }
+      setSacola([...espelhoSacola]);
+      return;
     }
   }
 
@@ -118,7 +134,12 @@ function App() {
           </article>
         </section>
         <aside>
-          <Sacola cupom={cupom} sacola={sacola} />
+          <Sacola
+            cupom={cupom}
+            sacola={sacola}
+            remover={handleRetirarSacola}
+            adicionar={handleAdicionarSacola}
+          />
         </aside>
       </main>
       <footer></footer>
