@@ -1,14 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import cupomIconCircle from "../assets/images/coupon-circle-icon.svg";
 import timeIcon from "../assets/images/time-icon.svg";
 import moneyImg from "../assets/images/money.png";
 
-function Cupom() {
-  const [tempo, setTempo] = useState(5);
+function Cupom(props) {
+  const [tempo, setTempo] = useState(300);
+  const intervalId = useRef(null);
+
+  useEffect(() => {
+    intervalId.current = setInterval(
+      () => setTempo((tempoAnterior) => tempoAnterior - 1),
+      1000
+    );
+    return () => {
+      clearInterval(intervalId.current);
+    };
+  }, []);
 
   return (
-    <div className="cupom-desc">
+    <div
+      className={tempo > 0 ? "cupom-desc" : "cupom-desc-none"}
+      onClick={() => {
+        setTempo(0);
+        props.preencherCupom("HTMLNAOELINGUAGEM");
+      }}
+    >
       <div className="cupom-esquerda">
         <h1>Aproveite agora</h1>
         <div className="codigo-cupom">
@@ -21,7 +38,7 @@ function Cupom() {
         <div className="tempo-cupom">
           <img src={timeIcon} alt="" />
           <p>
-            00:0{tempo % 60}:{String(Math.floor(tempo / 6)).padStart(2, "0")}
+            00:0{Math.floor(tempo / 60)}:{String(tempo % 60).padStart(2, "0")}
           </p>
         </div>
       </div>

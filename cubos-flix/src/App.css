@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -56,7 +57,6 @@ body {
 .input-header:hover {
   border: 1px solid #8c8c8c;
 }
-
 .input-header img {
   cursor: pointer;
 }
@@ -77,22 +77,14 @@ body {
 article > h2 {
   margin-bottom: 16px;
 }
-.btns-filtro {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  place-content: center;
-  width: 100%;
-}
 
-.btns-filtro button {
+.btns-filtro {
   cursor: pointer;
   background-color: transparent;
   border: 2px solid #ffffff;
   padding: 8;
   opacity: 0.2;
   min-width: 168px;
-  margin-right: 24px;
-  margin-bottom: 24px;
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
@@ -177,7 +169,23 @@ article > h2 {
   width: 152px;
   font-family: "Manrope", sans-serif;
 }
+.card-btn-sacola:hover {
+  background: linear-gradient(
+      0deg,
+      rgba(46, 46, 46, 0.45),
+      rgba(46, 46, 46, 0.45)
+    ),
+    #a785ed;
+}
 
+.card-btn-sacola:active {
+  background: linear-gradient(
+      0deg,
+      rgba(123, 123, 123, 0.45),
+      rgba(123, 123, 123, 0.45)
+    ),
+    #a785ed;
+}
 .card-filme-footer {
   position: absolute;
   bottom: 8px;
@@ -187,10 +195,11 @@ article > h2 {
 
 main {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 937px 312px;
   background-color: var(--corDeFundoBody);
   min-height: 100vh;
   padding: 24px 60px;
+  position: relative;
 }
 
 aside {
@@ -200,6 +209,8 @@ aside {
 .sacola {
   background-color: rgba(0, 0, 0, 0.2);
   position: fixed;
+  top: 112px;
+  min-width: 291px;
 }
 .sacola header {
   background-color: #a785ed;
@@ -226,7 +237,9 @@ aside {
   all: unset;
   width: 100%;
 }
-
+.input-cupom:hover {
+  border: 1px solid #8c8c8c;
+}
 .input-cupom button {
   background-color: transparent;
   border: 0;
@@ -242,12 +255,37 @@ aside {
   cursor: pointer;
   font-family: "Manrope", sans-serif;
 }
+
+.btn-confirmacao:hover {
+  background: linear-gradient(
+      0deg,
+      rgba(225, 123, 123, 0.45),
+      rgba(225, 123, 123, 0.45)
+    ),
+    #ffb6eb;
+  box-shadow: 0px 16px 24px -12px rgba(226, 94, 191, 0.16);
+}
+
+.btn-confirmacao:active {
+  background: linear-gradient(
+      0deg,
+      rgba(225, 123, 123, 0.6),
+      rgba(225, 123, 123, 0.6)
+    ),
+    #ffb6eb;
+  box-shadow: 0px 16px 24px -12px rgba(226, 94, 191, 0.5);
+}
 .sacola-vazia {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 24px 0;
+
+  max-width: 312px;
+}
+
+.sacola-vazia-none {
+  display: none;
 }
 
 .sacola-vazia h1 {
@@ -277,7 +315,13 @@ footer {
   padding: 16px 24px;
   position: relative;
   margin-bottom: 24px;
+  cursor: pointer;
 }
+
+.cupom-desc-none {
+  display: none;
+}
+
 #money-img {
   position: absolute;
   left: 654px;
@@ -329,4 +373,9 @@ footer {
 .tempo-cupom {
   display: flex;
   align-items: center;
+}
+
+.item-sacola img {
+  width: 43px;
+  height: 67px;
 }

@@ -18,7 +18,10 @@ function Filmes(props) {
             <p>{props.starsCount}</p>
           </div>
         </div>
-        <button className="card-btn-sacola">
+        <button
+          className="card-btn-sacola"
+          onClick={() => props.addSacola(props.title)}
+        >
           Sacola <span>R$ {props.price}</span>
         </button>
       </div>

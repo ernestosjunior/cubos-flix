@@ -4,7 +4,7 @@ import logo from "../assets/images/logo.svg";
 import searchIcon from "../assets/images/search-icon.svg";
 import favoritosIcon from "../assets/images/favoritos.svg";
 import promotionIcon from "../assets/images/promotion-icon.svg";
-import profileImg from "../assets/images/profile.jpg";
+import profileImg from "../assets/images/emoji.jpg";
 
 function Header() {
   return (
@@ -25,7 +25,7 @@ function Header() {
         Promoções
       </button>
       <div className="profile-container">
-        <p>Bem vindo, Dina</p>
+        <p>Bem vindo, Ernesto</p>
         <img src={profileImg} alt="" />
       </div>
     </div>
