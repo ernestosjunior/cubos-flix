@@ -91,7 +91,7 @@ function Sacola(props) {
               hidden={props.sacola.length ? false : true}
               className="btn-confirmacao"
             >
-              Confirme seus dados R$ {totalSacola}
+              Confirme seus dados R$ {totalSacola.toFixed(2)}
             </button>
           </div>
         </footer>
